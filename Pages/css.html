@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CSS — CET138 ePortfolio by Shital Thapa Magar. Covering layout, animations, responsive design, and modern CSS techniques.">
+  <title>CSS | CET138 ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('cet138-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="loader" role="status" aria-label="Loading"><div class="loader-ring"></div><p class="loader-text">Loading</p></div>
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">CET138 Portfolio</div>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="fullstack.html">Full Stack</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html" class="active">CSS</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="javascript.html">JavaScript</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+        <span class="theme-toggle__thumb">☀️</span>
+      </button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="fullstack.html">Full Stack</a>
+    <a href="html.html">HTML</a>
+    <a href="css.html">CSS</a>
+    <a href="bootstrap.html">Bootstrap</a>
+    <a href="javascript.html">JavaScript</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Module 3 — Presentation</span>
+      <h1 id="page-title"><span class="accent">CSS</span><br>Cascading Style Sheets</h1>
+      <p>
+        CSS is what transforms raw HTML into a designed interface. It controls every visual decision — 
+        colour, spacing, typography, layout, motion — and with modern techniques like custom 
+        properties and Grid, it has become a genuinely powerful design tool in its own right.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section" aria-labelledby="what-title">
+    <span class="section-label">Overview</span>
+    <h2 class="section-title reveal" id="what-title">What I Learned About CSS</h2>
+    <p class="section-body reveal reveal-delay-1">
+      My early CSS was mostly trial and error — changing colours until something looked right. 
+      This module pushed me to think more systematically. I began using CSS custom properties 
+      (variables) to define a consistent design token system, which meant a single colour 
+      or spacing value could be updated in one place and reflect everywhere.
+    </p>
+    <p class="section-body reveal reveal-delay-2" style="margin-top:1rem;">
+      The most significant shift was understanding layout. For years, developers fought browser 
+      inconsistencies with floats and tables. Flexbox solved one-dimensional layout cleanly, 
+      and CSS Grid solved two-dimensional layout. Learning both — and knowing which to reach 
+      for — changed how I think about page structure entirely.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Types -->
+  <section class="section section--alt" aria-labelledby="types-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Delivery Methods</span>
+        <h2 class="section-title reveal" id="types-title">Types of CSS</h2>
+      </div>
+      <div class="card-grid card-grid--3" role="list">
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Inline CSS</h3>
+          <p class="feature-card__body">Applied directly on an element using the <code style="color:var(--clr-gold);">style</code> attribute. Useful for rapid testing or one-off overrides, but poor for maintainability — it mixes concerns and cannot be reused.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Internal CSS</h3>
+          <p class="feature-card__body">Written in a <code style="color:var(--clr-gold);">&lt;style&gt;</code> block in the document head. Appropriate for single-page prototypes, but not scalable across a multi-page site.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">External CSS</h3>
+          <p class="feature-card__body">Stored in a separate <code style="color:var(--clr-gold);">.css</code> file linked via <code style="color:var(--clr-gold);">&lt;link&gt;</code>. The professional standard: cacheable, reusable across pages, and keeps HTML clean.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Examples -->
+  <section class="section" aria-labelledby="examples-title">
+    <div style="max-width:1100px;margin:0 auto;">
+      <span class="section-label">Practical Examples</span>
+      <h2 class="section-title reveal" id="examples-title">Key CSS Techniques</h2>
+
+      <p class="section-body reveal reveal-delay-1" style="margin-bottom:var(--sp-lg);">
+        The examples below show patterns I used when building this very portfolio.
+      </p>
+
+      <div class="code-block reveal reveal-delay-2" style="margin-bottom:var(--sp-lg);">
+        <div class="code-block__header">
+          <span class="code-dot code-dot--red"></span>
+          <span class="code-dot code-dot--amber"></span>
+          <span class="code-dot code-dot--green"></span>
+        </div>
+        <pre><code>/* Custom properties create a reusable design token system */
+:root {
+  --clr-gold:    #c9a84c;
+  --clr-bg:      #0a0f1e;
+  --clr-text:    #e2e8f0;
+  --sp-lg:       2.5rem;
+  --r-md:        12px;
+}
+
+/* Flexbox: one-dimensional, row or column */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Grid: two-dimensional, rows AND columns */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--sp-lg);
+}
+
+/* Responsive: adapt layout at breakpoints */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+      </div>
+
+      <!-- LIVE DEMO: Box Model -->
+      <div class="demo-block">
+        <div class="demo-block__header">
+          <span class="demo-block__title">📦 Box Model Visualiser <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <div class="demo-result" style="justify-content:center;">
+            <div class="box-model-demo" id="box-model-outer">
+              <div class="box-model-demo bm-border" id="box-model-border" style="border-width:8px;">
+                <div class="box-model-demo bm-content">content</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control-row">
+              <label for="bm-margin">margin</label>
+              <input type="range" id="bm-margin" min="0" max="40" value="24">
+              <span class="demo-value" id="bm-margin-val">24px</span>
+            </div>
+            <div class="demo-control-row">
+              <label for="bm-padding">padding</label>
+              <input type="range" id="bm-padding" min="0" max="40" value="16">
+              <span class="demo-value" id="bm-padding-val">16px</span>
+            </div>
+            <div class="demo-control-row">
+              <label for="bm-border-width">border-width</label>
+              <input type="range" id="bm-border-width" min="0" max="16" value="2">
+              <span class="demo-value" id="bm-border-val">2px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE DEMO: Flexbox Playground -->
+      <div class="demo-block" style="margin-top:var(--sp-lg);">
+        <div class="demo-block__header">
+          <span class="demo-block__title">📐 Flexbox Playground <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <div class="demo-result">
+            <div class="flex-demo" id="flex-demo">
+              <div class="flex-demo-item">1</div>
+              <div class="flex-demo-item">2</div>
+              <div class="flex-demo-item">3</div>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control-row">
+              <label for="flex-direction">flex-direction</label>
+              <select id="flex-direction">
+                <option value="row">row</option>
+                <option value="row-reverse">row-reverse</option>
+                <option value="column">column</option>
+                <option value="column-reverse">column-reverse</option>
+              </select>
+            </div>
+            <div class="demo-control-row">
+              <label for="flex-justify">justify-content</label>
+              <select id="flex-justify">
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+                <option value="space-between">space-between</option>
+                <option value="space-around">space-around</option>
+              </select>
+            </div>
+            <div class="demo-control-row">
+              <label for="flex-align">align-items</label>
+              <select id="flex-align">
+                <option value="stretch">stretch</option>
+                <option value="flex-start">flex-start</option>
+                <option value="center">center</option>
+                <option value="flex-end">flex-end</option>
+              </select>
+            </div>
+            <div class="demo-control-row">
+              <label>flex-wrap</label>
+              <button class="demo-toggle" id="flex-wrap-toggle">wrap: off</button>
+            </div>
+          </div>
+          <pre id="flex-code-output" class="demo-output-line" style="white-space:pre-wrap;"></pre>
+        </div>
+      </div>
+
+      <!-- LIVE DEMO: Grid Playground -->
+      <div class="demo-block" style="margin-top:var(--sp-lg);">
+        <div class="demo-block__header">
+          <span class="demo-block__title">🔲 CSS Grid Playground <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <div class="demo-result">
+            <div class="grid-demo" id="grid-demo">
+              <div class="grid-demo-item">1</div>
+              <div class="grid-demo-item">2</div>
+              <div class="grid-demo-item">3</div>
+              <div class="grid-demo-item">4</div>
+              <div class="grid-demo-item">5</div>
+              <div class="grid-demo-item">6</div>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control-row">
+              <label for="grid-cols">columns</label>
+              <input type="range" id="grid-cols" min="1" max="6" value="3">
+              <span class="demo-value" id="grid-cols-val">3</span>
+            </div>
+            <div class="demo-control-row">
+              <label for="grid-gap">gap</label>
+              <input type="range" id="grid-gap" min="0" max="30" value="10">
+              <span class="demo-value" id="grid-gap-val">10px</span>
+            </div>
+          </div>
+          <pre id="grid-code-output" class="demo-output-line" style="white-space:pre-wrap;"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Features -->
+  <section class="section section--alt" aria-labelledby="features-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Modern CSS</span>
+        <h2 class="section-title reveal" id="features-title">Techniques Worth Knowing</h2>
+      </div>
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <span class="adv-icon">🎨</span>
+          <div><div class="adv-title">Custom Properties</div><p class="adv-body">Variables that cascade through your stylesheet, making global design changes a single-line edit instead of a find-and-replace.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">📐</span>
+          <div><div class="adv-title">Flexbox</div><p class="adv-body">Ideal for navbars, button groups, and any layout where items need to align along a single axis with even spacing.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🔲</span>
+          <div><div class="adv-title">CSS Grid</div><p class="adv-body">Two-dimensional layout for card grids, page scaffolding, and complex arrangements that Flexbox can't express cleanly.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">📱</span>
+          <div><div class="adv-title">Media Queries</div><p class="adv-body">Rules that apply only at certain viewport widths, allowing a layout to reflow from a multi-column desktop view to a single-column mobile view.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">✨</span>
+          <div><div class="adv-title">Transitions & Animations</div><p class="adv-body">Smooth visual changes on hover or class addition. Best used sparingly — animation should communicate, not just decorate.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🔭</span>
+          <div><div class="adv-title">Clamp() & Fluid Type</div><p class="adv-body">Scale font sizes smoothly between a minimum and maximum value based on viewport width, eliminating brittle breakpoint-based font changes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">CET138 Portfolio</div>
+        <p>A Full Stack Development ePortfolio documenting my first-year learning journey at university.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../index.html">Home</a>
+        <a href="fullstack.html">Full Stack</a>
+        <a href="html.html">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="bootstrap.html">Bootstrap</a>
+        <a href="javascript.html">JavaScript</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shital Thapa Magar — CET138 ePortfolio</span>
+      <span><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+</body>
+</html>

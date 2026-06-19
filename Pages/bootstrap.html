@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bootstrap — CET138 ePortfolio by Shital Thapa Magar. The grid system, components, and utility classes.">
+  <title>Bootstrap | CET138 ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('cet138-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="loader" role="status" aria-label="Loading"><div class="loader-ring"></div><p class="loader-text">Loading</p></div>
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">CET138 Portfolio</div>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="fullstack.html">Full Stack</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html">CSS</a></li>
+      <li><a href="bootstrap.html" class="active">Bootstrap</a></li>
+      <li><a href="javascript.html">JavaScript</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+        <span class="theme-toggle__thumb">☀️</span>
+      </button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="fullstack.html">Full Stack</a>
+    <a href="html.html">HTML</a>
+    <a href="css.html">CSS</a>
+    <a href="bootstrap.html">Bootstrap</a>
+    <a href="javascript.html">JavaScript</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Module 4 — Frameworks</span>
+      <h1 id="page-title"><span class="accent">Bootstrap</span><br>The CSS Framework</h1>
+      <p>
+        Bootstrap removes the repetitive groundwork of building responsive layouts from scratch. 
+        Rather than replacing CSS knowledge, it accelerates teams that already understand CSS — 
+        you still need to know what you're doing; Bootstrap just lets you do more of it faster.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section" aria-labelledby="what-title">
+    <span class="section-label">Overview</span>
+    <h2 class="section-title reveal" id="what-title">What I Learned About Bootstrap</h2>
+    <p class="section-body reveal reveal-delay-1">
+      Bootstrap was originally developed at Twitter to bring consistency to their internal tools. 
+      It became open-source in 2011 and has since become one of the most widely used CSS frameworks 
+      on the internet. Understanding Bootstrap well — including when <em>not</em> to use it — is 
+      a practical skill for working in almost any web development team.
+    </p>
+    <p class="section-body reveal reveal-delay-2" style="margin-top:1rem;">
+      The clearest lesson I took from this module: Bootstrap is a starting point, not a finish line. 
+      Projects that rely on it exclusively tend to look identical. The skill is knowing which 
+      Bootstrap defaults to keep, which to override, and which to replace with custom CSS entirely.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Grid System -->
+  <section class="section section--alt" aria-labelledby="grid-title">
+    <div style="max-width:1100px;margin:0 auto;">
+      <span class="section-label">Core Concept</span>
+      <h2 class="section-title reveal" id="grid-title">The 12-Column Grid</h2>
+      <p class="section-body reveal reveal-delay-1" style="margin-bottom:var(--sp-lg);">
+        Bootstrap divides every row into 12 equal columns. By assigning column classes, you 
+        control how many of those 12 a given element occupies — and how that changes at 
+        different breakpoints. This was the concept that made responsive layout immediately 
+        intuitive for me.
+      </p>
+
+      <div class="code-block reveal reveal-delay-2">
+        <div class="code-block__header">
+          <span class="code-dot code-dot--red"></span>
+          <span class="code-dot code-dot--amber"></span>
+          <span class="code-dot code-dot--green"></span>
+        </div>
+        <pre><code>&lt;!-- Bootstrap grid: 3 equal columns on medium+ screens, stacked on mobile --&gt;
+&lt;div class="container"&gt;
+  &lt;div class="row g-3"&gt;
+    &lt;div class="col-12 col-md-4"&gt;
+      &lt;div class="card p-3"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-4"&gt;
+      &lt;div class="card p-3"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-4"&gt;
+      &lt;div class="card p-3"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Result: 3 cards side-by-side on desktop, stacked on mobile --&gt;</code></pre>
+      </div>
+
+      <!-- LIVE DEMO: Grid Column Simulator -->
+      <div class="demo-block">
+        <div class="demo-block__header">
+          <span class="demo-block__title">📐 Grid Column Simulator <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <p class="section-body" style="font-size:var(--fs-sm); margin-bottom:var(--sp-md);">
+            Drag the slider to see how Bootstrap divides 12 columns evenly between a chosen number of elements.
+          </p>
+          <div class="demo-result" style="flex-direction:column; align-items:stretch;">
+            <div class="bs-row" id="bs-grid-row"></div>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control-row">
+              <label for="bs-col-count">columns</label>
+              <input type="range" id="bs-col-count" min="2" max="6" value="3" step="1">
+              <span class="demo-value" id="bs-col-count-val">3</span>
+            </div>
+          </div>
+          <pre id="bs-grid-output" class="demo-output-line" style="white-space:pre-wrap;"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="section" aria-labelledby="components-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Ready-Made UI</span>
+        <h2 class="section-title reveal" id="components-title">Key Bootstrap Components</h2>
+      </div>
+      <div class="card-grid" role="list">
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Buttons</h3>
+          <p class="feature-card__body">Classes like <code style="color:var(--clr-gold);">.btn .btn-primary</code> provide styled, accessible buttons with hover and focus states built in — including keyboard focus visibility.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Cards</h3>
+          <p class="feature-card__body">Flexible content containers with optional headers, footers, and image areas. Useful for feature grids, product listings, and portfolio layouts.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Navbar</h3>
+          <p class="feature-card__body">A responsive navigation bar that collapses into a hamburger menu on small screens — behaviour that would take significant custom JS to replicate from scratch.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Modal</h3>
+          <p class="feature-card__body">An accessible overlay dialog with backdrop, focus trapping, and keyboard dismissal — all handled by Bootstrap's JS plugin without any additional code.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Utility Classes</h3>
+          <p class="feature-card__body">Single-purpose classes like <code style="color:var(--clr-gold);">.mt-4</code>, <code style="color:var(--clr-gold);">.d-flex</code>, and <code style="color:var(--clr-gold);">.text-center</code> handle common styling needs inline without writing CSS.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Alerts & Badges</h3>
+          <p class="feature-card__body">Contextual messaging components with semantic colour coding (danger, success, warning, info) that communicate status clearly to all users.</p>
+        </div>
+      </div>
+
+      <!-- LIVE DEMO: Buttons, Alerts, Badges -->
+      <div class="demo-block" style="margin-top:var(--sp-xl);">
+        <div class="demo-block__header">
+          <span class="demo-block__title">🎛️ Component Sandbox <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <p class="section-body" style="font-size:var(--fs-sm); margin-bottom:var(--sp-md);">Buttons</p>
+          <div class="demo-result" style="margin-bottom:var(--sp-lg);">
+            <button class="bs-btn bs-btn--primary">Primary</button>
+            <button class="bs-btn bs-btn--success">Success</button>
+            <button class="bs-btn bs-btn--danger">Danger</button>
+            <button class="bs-btn bs-btn--warning">Warning</button>
+            <button class="bs-btn bs-btn--outline">Outline</button>
+          </div>
+
+          <p class="section-body" style="font-size:var(--fs-sm); margin-bottom:var(--sp-md);">Badges</p>
+          <div class="demo-result" style="margin-bottom:var(--sp-lg);">
+            <span class="bs-badge bs-badge--primary">New</span>
+            <span class="bs-badge bs-badge--success">Active</span>
+            <span class="bs-badge bs-badge--danger">Error</span>
+          </div>
+
+          <p class="section-body" style="font-size:var(--fs-sm); margin-bottom:var(--sp-md);">Dismissible Alerts — click ✕ to remove, or generate a new one</p>
+          <div id="bs-alert-container" style="display:flex; flex-direction:column; gap:8px;">
+            <div class="bs-alert bs-alert--info">
+              <span>ℹ️ This alert can be dismissed.</span>
+              <button data-dismiss aria-label="Dismiss">×</button>
+            </div>
+            <div class="bs-alert bs-alert--warning">
+              <span>⚠️ So can this one.</span>
+              <button data-dismiss aria-label="Dismiss">×</button>
+            </div>
+          </div>
+          <button class="btn-outline" id="bs-trigger-alert" style="margin-top:var(--sp-md);">+ Add Alert via JavaScript</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Pros & Cons -->
+  <section class="section section--alt" aria-labelledby="tradeoffs-title">
+    <div style="max-width:1100px;margin:0 auto;">
+      <span class="section-label">Critical Evaluation</span>
+      <h2 class="section-title reveal" id="tradeoffs-title">When to Use Bootstrap — and When Not To</h2>
+      <p class="section-body reveal reveal-delay-1" style="margin-bottom:var(--sp-xl);">
+        A distinction-level understanding of Bootstrap means knowing both its strengths and its limitations.
+      </p>
+
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <span class="adv-icon">✅</span>
+          <div><div class="adv-title">Rapid Prototyping</div><p class="adv-body">For wireframes, internal tools, or MVPs where development speed matters more than visual uniqueness, Bootstrap is hard to beat.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">✅</span>
+          <div><div class="adv-title">Team Consistency</div><p class="adv-body">A shared framework means every developer produces layouts that work the same way, reducing integration bugs.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">✅</span>
+          <div><div class="adv-title">Accessibility Out of the Box</div><p class="adv-body">Bootstrap components include ARIA attributes and keyboard interaction patterns — a baseline that's easy to overlook when writing custom components.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">⚠️</span>
+          <div><div class="adv-title">Visual Sameness</div><p class="adv-body">Unstyled Bootstrap sites are immediately recognisable. Consumer-facing products that need a distinctive brand often need significant customisation or a different approach.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">⚠️</span>
+          <div><div class="adv-title">Bundle Size</div><p class="adv-body">Full Bootstrap imports CSS and JS you may not use. For performance-critical projects, a custom or utility-first CSS approach (like Tailwind) can be leaner.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">⚠️</span>
+          <div><div class="adv-title">Hidden Complexity</div><p class="adv-body">Overriding Bootstrap's specificity can be frustrating without understanding CSS cascade. The framework can obscure what's actually happening at the CSS level.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">CET138 Portfolio</div>
+        <p>A Full Stack Development ePortfolio documenting my first-year learning journey at university.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../index.html">Home</a>
+        <a href="fullstack.html">Full Stack</a>
+        <a href="html.html">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="bootstrap.html">Bootstrap</a>
+        <a href="javascript.html">JavaScript</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shital Thapa Magar — CET138 ePortfolio</span>
+      <span><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+</body>
+</html>

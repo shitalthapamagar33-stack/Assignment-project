@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full Stack Development — CET138 ePortfolio by Shital Thapa Magar. Covering frontend, backend, and database architecture.">
+  <title>Full Stack Development | CET138 ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('cet138-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="loader" role="status" aria-label="Loading"><div class="loader-ring"></div><p class="loader-text">Loading</p></div>
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">CET138 Portfolio</div>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="fullstack.html" class="active">Full Stack</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html">CSS</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="javascript.html">JavaScript</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+        <span class="theme-toggle__thumb">☀️</span>
+      </button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="fullstack.html">Full Stack</a>
+    <a href="html.html">HTML</a>
+    <a href="css.html">CSS</a>
+    <a href="bootstrap.html">Bootstrap</a>
+    <a href="javascript.html">JavaScript</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Module 1 — Overview</span>
+      <h1 id="page-title">Full Stack<br><span class="accent">Development</span></h1>
+      <p>
+        Full Stack Development covers every layer of a web application — from the interface 
+        a user sees to the server logic that processes their actions and the database that 
+        stores their data. Understanding how these layers connect is what distinguishes a 
+        well-rounded developer from a specialist in one area.
+      </p>
+    </div>
+  </section>
+
+  <!-- What is it -->
+  <section class="section" aria-labelledby="what-title">
+    <span class="section-label">Definition</span>
+    <h2 class="section-title reveal" id="what-title">What is Full Stack Development?</h2>
+    <p class="section-body reveal reveal-delay-1">
+      When I first encountered the term "full stack", I assumed it simply meant writing both HTML 
+      and some server code. In practice, it refers to understanding the complete pipeline of a 
+      web application: how a button click in a browser can trigger a chain of events across a 
+      network, a server, and a database — and come back as a response in milliseconds.
+    </p>
+    <p class="section-body reveal reveal-delay-2" style="margin-top:1rem;">
+      The frontend (what users see) handles presentation and interaction. The backend (the server) 
+      enforces business logic and security. The database persists and retrieves data. Mastering 
+      all three layers means you can build a complete product without depending on others to fill in gaps.
+    </p>
+
+    <div class="tech-pills reveal reveal-delay-3" role="list" aria-label="Technologies">
+      <span class="pill" role="listitem">HTML</span>
+      <span class="pill" role="listitem">CSS</span>
+      <span class="pill" role="listitem">JavaScript</span>
+      <span class="pill" role="listitem">React</span>
+      <span class="pill" role="listitem">Node.js</span>
+      <span class="pill" role="listitem">Python</span>
+      <span class="pill" role="listitem">MySQL</span>
+      <span class="pill" role="listitem">MongoDB</span>
+      <span class="pill" role="listitem">Git</span>
+      <span class="pill" role="listitem">REST APIs</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Components -->
+  <section class="section section--alt" aria-labelledby="components-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Architecture</span>
+        <h2 class="section-title reveal" id="components-title">The Three Layers</h2>
+      </div>
+      <div class="card-grid card-grid--3" role="list">
+        <div class="feature-card" role="listitem">
+          <div class="topic-card__icon" aria-hidden="true">🖥️</div>
+          <h3 class="feature-card__title">Frontend Development</h3>
+          <p class="feature-card__body">
+            The frontend is everything a user directly interacts with. It must be fast to load, 
+            accessible to all users, and visually clear. Technologies like HTML5, CSS3, and 
+            JavaScript — along with frameworks like React — are the tools of this layer. 
+            Good frontend work is invisible: users notice bad UX, not good UX.
+          </p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="topic-card__icon" aria-hidden="true">⚙️</div>
+          <h3 class="feature-card__title">Backend Development</h3>
+          <p class="feature-card__body">
+            The backend is the brain of an application. It validates input, enforces business 
+            rules, manages user authentication, and exposes APIs that the frontend can call. 
+            Node.js, Python (Django/Flask), and PHP are common backend environments. 
+            Security and scalability are the primary concerns at this layer.
+          </p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="topic-card__icon" aria-hidden="true">🗄️</div>
+          <h3 class="feature-card__title">Database Layer</h3>
+          <p class="feature-card__body">
+            Data persistence is handled by a database. Relational databases like MySQL and 
+            PostgreSQL organise data into tables with defined relationships, while document 
+            databases like MongoDB store flexible JSON-like records. The choice depends on 
+            the structure and scale of your data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Flow -->
+  <section class="section section--centered" aria-labelledby="flow-title">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title reveal" id="flow-title">Request–Response Lifecycle</h2>
+    <p class="section-body reveal reveal-delay-1" style="margin:0 auto var(--sp-xl);">
+      Every interaction with a web application follows this path. Understanding this cycle 
+      helped me see why each layer matters and how errors propagate between them.
+    </p>
+
+    <div class="arch-flow reveal" role="list" aria-label="Architecture flow">
+      <div class="arch-node" role="listitem" id="arch-node-0">
+        <div class="arch-node__icon">👤</div>
+        <div class="arch-node__name">User</div>
+        <div class="arch-node__sub">Clicks a button</div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">→</div>
+      <div class="arch-node" role="listitem" id="arch-node-1">
+        <div class="arch-node__icon">🖥️</div>
+        <div class="arch-node__name">Frontend</div>
+        <div class="arch-node__sub">Sends HTTP request</div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">→</div>
+      <div class="arch-node" role="listitem" id="arch-node-2">
+        <div class="arch-node__icon">⚙️</div>
+        <div class="arch-node__name">Backend</div>
+        <div class="arch-node__sub">Processes logic</div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">→</div>
+      <div class="arch-node" role="listitem" id="arch-node-3">
+        <div class="arch-node__icon">🗄️</div>
+        <div class="arch-node__name">Database</div>
+        <div class="arch-node__sub">Reads / writes data</div>
+      </div>
+      <div class="arch-arrow" aria-hidden="true">→</div>
+      <div class="arch-node" role="listitem" id="arch-node-4">
+        <div class="arch-node__icon">📱</div>
+        <div class="arch-node__name">Response</div>
+        <div class="arch-node__sub">Rendered for user</div>
+      </div>
+    </div>
+
+    <!-- LIVE DEMO: Request Lifecycle Simulator -->
+    <div style="margin-top:var(--sp-lg);">
+      <button class="btn-primary" id="arch-simulate-btn">▶ Simulate a Request</button>
+      <p class="demo-output-line" id="arch-simulate-output" style="max-width:600px; margin:var(--sp-sm) auto 0;"></p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Skills -->
+  <section class="section section--alt" aria-labelledby="skills-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Developer Skills</span>
+        <h2 class="section-title reveal" id="skills-title">What Full Stack Requires</h2>
+      </div>
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">💻</span>
+          <div>
+            <div class="adv-title">Programming Across Layers</div>
+            <p class="adv-body">Comfort with both frontend languages (HTML, CSS, JS) and at least one backend language to reason about the whole application.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">🗃️</span>
+          <div>
+            <div class="adv-title">Database Thinking</div>
+            <p class="adv-body">Designing schemas, writing queries, and understanding indexing so data is stored and retrieved efficiently.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">🔍</span>
+          <div>
+            <div class="adv-title">Debugging Across the Stack</div>
+            <p class="adv-body">Tracing a bug from a blank screen in the browser, through a network request, to a server error, and into a malformed database query.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">🔄</span>
+          <div>
+            <div class="adv-title">Version Control</div>
+            <p class="adv-body">Using Git and GitHub to manage changes, collaborate safely, and roll back mistakes without losing work.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">🚀</span>
+          <div>
+            <div class="adv-title">Deployment Awareness</div>
+            <p class="adv-body">Understanding how to move a project from a local machine to a live server using platforms like Netlify, Vercel, or basic Linux hosting.</p>
+          </div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon" aria-hidden="true">🛡️</span>
+          <div>
+            <div class="adv-title">Security Fundamentals</div>
+            <p class="adv-body">Knowing the common attack vectors (XSS, SQL injection, CSRF) and how to write code that defends against them from the start.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">CET138 Portfolio</div>
+        <p>A Full Stack Development ePortfolio documenting my first-year learning journey at university.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../index.html">Home</a>
+        <a href="fullstack.html">Full Stack</a>
+        <a href="html.html">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="bootstrap.html">Bootstrap</a>
+        <a href="javascript.html">JavaScript</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shital Thapa Magar — CET138 ePortfolio</span>
+      <span><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+</body>
+</html>

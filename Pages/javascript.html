@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript — CET138 ePortfolio by Shital Thapa Magar. Variables, functions, DOM manipulation, events, and modern JS patterns.">
+  <title>JavaScript | CET138 ePortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('cet138-theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="loader" role="status" aria-label="Loading"><div class="loader-ring"></div><p class="loader-text">Loading</p></div>
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">CET138 Portfolio</div>
+    <ul class="nav-links" role="list">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="fullstack.html">Full Stack</a></li>
+      <li><a href="html.html">HTML</a></li>
+      <li><a href="css.html">CSS</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="javascript.html" class="active">JavaScript</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+        <span class="theme-toggle__thumb">☀️</span>
+      </button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html">Home</a>
+    <a href="fullstack.html">Full Stack</a>
+    <a href="html.html">HTML</a>
+    <a href="css.html">CSS</a>
+    <a href="bootstrap.html">Bootstrap</a>
+    <a href="javascript.html">JavaScript</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Module 5 — Behaviour</span>
+      <h1 id="page-title"><span class="accent">JavaScript</span><br>The Language of the Web</h1>
+      <p>
+        JavaScript is what turns a static document into a living application. It responds to user 
+        actions, updates content without page reloads, validates forms, fetches data from APIs, 
+        and — with Node.js — runs on the server too. Mastering JavaScript is the single biggest 
+        step toward becoming a capable full stack developer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section" aria-labelledby="what-title">
+    <span class="section-label">Overview</span>
+    <h2 class="section-title reveal" id="what-title">What I Learned About JavaScript</h2>
+    <p class="section-body reveal reveal-delay-1">
+      JavaScript was where this module felt most practical to me. I could immediately see the 
+      effect of what I was writing — a button click that opened a menu, a scroll event that 
+      triggered an animation, a setTimeout that built a typing effect character by character. 
+      That immediate feedback loop made it easier to learn by experimenting.
+    </p>
+    <p class="section-body reveal reveal-delay-2" style="margin-top:1rem;">
+      The shift from basic JavaScript to <em>good</em> JavaScript was harder. I learned to 
+      prefer <code style="color:var(--clr-gold);background:var(--clr-gold-dim);padding:2px 6px;border-radius:4px;">const</code> and <code style="color:var(--clr-gold);background:var(--clr-gold-dim);padding:2px 6px;border-radius:4px;">let</code> over <code style="color:var(--clr-gold);background:var(--clr-gold-dim);padding:2px 6px;border-radius:4px;">var</code>, 
+      to use <code style="color:var(--clr-gold);background:var(--clr-gold-dim);padding:2px 6px;border-radius:4px;">addEventListener</code> over inline handlers, 
+      and to favour <code style="color:var(--clr-gold);background:var(--clr-gold-dim);padding:2px 6px;border-radius:4px;">IntersectionObserver</code> over scroll events with no 
+      debouncing. These distinctions matter for performance and maintainability at scale.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Core Concepts -->
+  <section class="section section--alt" aria-labelledby="concepts-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Fundamentals</span>
+        <h2 class="section-title reveal" id="concepts-title">Core JavaScript Concepts</h2>
+      </div>
+      <div class="card-grid" role="list">
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Variables</h3>
+          <p class="feature-card__body">Use <code style="color:var(--clr-gold);">const</code> by default for values that won't be reassigned, <code style="color:var(--clr-gold);">let</code> when they will. Avoid <code style="color:var(--clr-gold);">var</code> — its function scope creates subtle bugs that <code style="color:var(--clr-gold);">let</code> and <code style="color:var(--clr-gold);">const</code>'s block scope prevent.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Functions</h3>
+          <p class="feature-card__body">Reusable logic blocks. Arrow functions (<code style="color:var(--clr-gold);">() => {}</code>) are shorter and don't create their own <code style="color:var(--clr-gold);">this</code>, making them preferable for callbacks and event handlers.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">DOM Manipulation</h3>
+          <p class="feature-card__body">The Document Object Model is a live tree of every element on the page. JavaScript can read, modify, add, or remove nodes — enabling dynamic content updates without reloading.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Events</h3>
+          <p class="feature-card__body"><code style="color:var(--clr-gold);">addEventListener</code> attaches behaviour to user actions (click, scroll, input, keydown). Event delegation — one listener on a parent — is more efficient than individual listeners on every child.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Promises & Async/Await</h3>
+          <p class="feature-card__body">Asynchronous operations (fetching data, reading files) return Promises. <code style="color:var(--clr-gold);">async/await</code> makes this code read linearly, which is far easier to reason about than nested callbacks.</p>
+        </div>
+        <div class="feature-card" role="listitem">
+          <h3 class="feature-card__title">Modules (ES6)</h3>
+          <p class="feature-card__body"><code style="color:var(--clr-gold);">import</code> and <code style="color:var(--clr-gold);">export</code> split JavaScript into separate, scoped files. This avoids polluting the global scope and makes large codebases maintainable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <section class="section" aria-labelledby="example-title">
+    <div style="max-width:1100px;margin:0 auto;">
+      <span class="section-label">Code in Practice</span>
+      <h2 class="section-title reveal" id="example-title">From This Portfolio</h2>
+      <p class="section-body reveal reveal-delay-1" style="margin-bottom:var(--sp-lg);">
+        Rather than a toy example, here is the actual scroll-reveal logic used on this page. 
+        It uses <code style="color:var(--clr-gold);">IntersectionObserver</code> — the modern, 
+        performant alternative to listening on the scroll event.
+      </p>
+
+      <div class="code-block reveal reveal-delay-2">
+        <div class="code-block__header">
+          <span class="code-dot code-dot--red"></span>
+          <span class="code-dot code-dot--amber"></span>
+          <span class="code-dot code-dot--green"></span>
+        </div>
+        <pre><code>// Select all elements that should animate on scroll
+const cards = document.querySelectorAll('.feature-card, .advantage-item');
+
+// IntersectionObserver fires when elements enter or leave the viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // triggers CSS transition
+      observer.unobserve(entry.target);      // stop watching once done
+    }
+  });
+}, {
+  threshold: 0.12,         // 12% of the element must be visible
+  rootMargin: '0px 0px -40px 0px'  // trigger 40px before the bottom
+});
+
+// Add staggered transition delays for visual interest
+cards.forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.08 + 's';
+  observer.observe(el);
+});
+
+// Why not scroll events?
+// window.addEventListener('scroll', handler) fires dozens of times per second.
+// IntersectionObserver is browser-optimised and fires only when needed.</code></pre>
+      </div>
+
+      <!-- LIVE DEMO: Mini Console -->
+      <div class="demo-block" style="margin-top:var(--sp-lg);">
+        <div class="demo-block__header">
+          <span class="demo-block__title">🖥️ Mini JS Console <span class="demo-badge">Live</span></span>
+        </div>
+        <div class="demo-block__body">
+          <p class="section-body" style="font-size:var(--fs-sm); margin-bottom:var(--sp-md);">
+            Click run to actually execute a small loop in your browser right now and see real output below.
+          </p>
+          <div class="js-console" id="js-console-output">
+            <div class="line muted">Click "Run" to execute the code...</div>
+          </div>
+          <button class="btn-primary" id="js-run-btn" style="margin-top:var(--sp-md);">▶ Run Code</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Live Interactive Demos -->
+  <section class="section section--alt" aria-labelledby="interactive-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Try It Yourself</span>
+        <h2 class="section-title reveal" id="interactive-title">Interactive Demos</h2>
+        <p class="section-body reveal reveal-delay-1" style="margin:0 auto var(--sp-xl);">
+          Three small widgets, all built with vanilla JavaScript, no libraries. Each demonstrates 
+          a different core concept from this module.
+        </p>
+      </div>
+
+      <div class="card-grid card-grid--3" role="list">
+        <!-- DOM Manipulation Demo -->
+        <div class="demo-block" style="margin:0;">
+          <div class="demo-block__header">
+            <span class="demo-block__title">📋 To-Do List <span class="demo-badge">Live</span></span>
+          </div>
+          <div class="demo-block__body">
+            <p class="section-body" style="font-size:var(--fs-xs); margin-bottom:var(--sp-sm);">DOM creation &amp; removal</p>
+            <ul class="dom-list" id="dom-demo-list"></ul>
+            <div style="display:flex; gap:6px; margin-top:var(--sp-sm);">
+              <input type="text" id="dom-demo-input" placeholder="Add a task..." style="flex:1; background:var(--clr-surface); border:1px solid var(--clr-border); border-radius:var(--r-sm); padding:8px 10px; color:var(--clr-text); font-size:var(--fs-sm);">
+              <button class="btn-outline" id="dom-demo-add" style="padding:8px 16px;">Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Switcher Content Demo -->
+        <div class="demo-block" style="margin:0;">
+          <div class="demo-block__header">
+            <span class="demo-block__title">🎨 Theme Switcher <span class="demo-badge">Live</span></span>
+          </div>
+          <div class="demo-block__body">
+            <p class="section-body" style="font-size:var(--fs-xs); margin-bottom:var(--sp-sm);">Dataset attributes &amp; CSS variables</p>
+            <div class="demo-result" style="padding:var(--sp-sm);">
+              <div class="theme-demo-card" id="theme-demo-card" data-theme="dark">
+                <h4>Sample Card</h4>
+                <p>This preview updates instantly based on the selected theme.</p>
+              </div>
+            </div>
+            <div class="demo-toggle-group" style="margin-top:var(--sp-sm);">
+              <button class="demo-toggle theme-demo-btn active" data-theme="dark">Dark</button>
+              <button class="demo-toggle theme-demo-btn" data-theme="light">Light</button>
+              <button class="demo-toggle theme-demo-btn" data-theme="sunset">Sunset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Delegation Click Counter -->
+        <div class="demo-block" style="margin:0;">
+          <div class="demo-block__header">
+            <span class="demo-block__title">🔢 Click Counter <span class="demo-badge">Live</span></span>
+          </div>
+          <div class="demo-block__body">
+            <p class="section-body" style="font-size:var(--fs-xs); margin-bottom:var(--sp-sm);">Event delegation pattern</p>
+            <div class="demo-result" style="flex-direction:column; gap:var(--sp-sm);">
+              <div style="font-size:var(--fs-4xl); font-weight:800; color:var(--clr-gold); transition:transform 0.15s ease;" id="click-counter-value">0</div>
+              <div id="click-counter-demo" style="display:flex; gap:8px;">
+                <button class="bs-btn bs-btn--outline" data-inc="1" style="border-color:var(--clr-gold); color:var(--clr-gold);">+1</button>
+                <button class="bs-btn bs-btn--outline" data-inc="5" style="border-color:var(--clr-gold); color:var(--clr-gold);">+5</button>
+                <button class="bs-btn bs-btn--outline" data-inc="-1" style="border-color:var(--clr-gold); color:var(--clr-gold);">−1</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <!-- Uses -->
+  <section class="section section--alt" aria-labelledby="uses-title">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section--centered">
+        <span class="section-label">Applications</span>
+        <h2 class="section-title reveal" id="uses-title">What JavaScript Enables</h2>
+      </div>
+      <div class="advantage-list">
+        <div class="advantage-item">
+          <span class="adv-icon">✅</span>
+          <div><div class="adv-title">Form Validation</div><p class="adv-body">Check input client-side before a network request. Immediate feedback is faster and more user-friendly than a server round-trip for simple errors.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🌐</span>
+          <div><div class="adv-title">API Data Fetching</div><p class="adv-body">The <code style="color:var(--clr-gold);">fetch()</code> API retrieves JSON from external services — weather, maps, news — and renders it into the page without a reload.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🎭</span>
+          <div><div class="adv-title">UI Interactions</div><p class="adv-body">Dropdowns, modals, tab panels, sliders, accordions — any interactive component that requires hiding or showing content dynamically.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">📊</span>
+          <div><div class="adv-title">Data Visualisation</div><p class="adv-body">Libraries like Chart.js and D3.js use the Canvas and SVG APIs to render interactive charts, graphs, and maps from raw data.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">🖥️</span>
+          <div><div class="adv-title">Server-Side (Node.js)</div><p class="adv-body">Node.js runs JavaScript outside the browser, enabling the same language to handle HTTP requests, database queries, and file operations on the server.</p></div>
+        </div>
+        <div class="advantage-item">
+          <span class="adv-icon">📱</span>
+          <div><div class="adv-title">Mobile Apps</div><p class="adv-body">React Native and frameworks built on it allow JavaScript developers to build iOS and Android apps with a largely shared codebase.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">CET138 Portfolio</div>
+        <p>A Full Stack Development ePortfolio documenting my first-year learning journey at university.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="../index.html">Home</a>
+        <a href="fullstack.html">Full Stack</a>
+        <a href="html.html">HTML</a>
+        <a href="css.html">CSS</a>
+        <a href="bootstrap.html">Bootstrap</a>
+        <a href="javascript.html">JavaScript</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shital Thapa Magar — CET138 ePortfolio</span>
+      <span><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+    </div>
+  </footer>
+
+  <script src="../JS/main.js"></script>
+</body>
+</html>
